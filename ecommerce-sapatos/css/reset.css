@@ -1,0 +1,129 @@
+/* Reset moderno inspirado no "Modern CSS Reset" do Andy Bell
+	 Fonte: https://piccalil.li/blog/a-modern-css-reset/
+	 Comentários em PT-BR e pequenas adaptações para o projeto.
+
+	 Objetivo: fornecer uma base consistente entre navegadores
+	 sem impor estilos visuais — apenas normalize/remoções úteis.
+*/
+
+/* Box sizing mais previsível */
+*, *::before, *::after {
+	box-sizing: border-box; /* incluir padding e border nas larguras */
+}
+
+/* Remover margens padrão de elementos de bloco */
+:where(html, body, main, header, footer, section, nav, article) {
+	margin: 0;
+	padding: 0;
+}
+
+/* Forçar altura mínima do documento e renderização de texto legível */
+html, body {
+	height: 100%;
+	-webkit-text-size-adjust: 100%; /* desabilita o zoom automático em alguns dispositivos */
+}
+
+/* Fonte e cores ficam por conta do projeto (variables.css) */
+body {
+	line-height: 1.4; /* melhora legibilidade padrão */
+	text-rendering: optimizeLegibility;
+}
+
+/* Remover margens em headings e parágrafos */
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}
+
+/* Listas sem estilos por padrão */
+ul, ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Links sem decoração por padrão, mas preserva cor herdada */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Imagens responsivas por padrão */
+img, picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Tabelas: colapsar bordas por padrão */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Formulários: reset básico para inputs e botões */
+input, button, textarea, select {
+	font: inherit; /* herda fonte do elemento pai */
+	margin: 0; /* remove margem padrão em alguns browsers */
+}
+
+/* Remover outline padrão apenas quando houver suporte a foco visível */
+:focus {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+
+/* Utilitário para esconder visualmente mas manter acessível a leitores de tela */
+.sr-only {
+	position: absolute !important;
+	width: 1px; height: 1px;
+	padding: 0; margin: -1px;
+	overflow: hidden; clip: rect(0 0 0 0);
+	white-space: nowrap; border: 0;
+}
+
+/* Redefine elementos HTML5 interativos para comportamento consistente */
+button {
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+
+/* Inputs do tipo search ou number podem ter aparências nativas indesejadas */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+
+/* Telas pequenas: garantir que o texto não quebre de forma estranha por padrão */
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Melhor fallback para elementos de mídia com legendas */
+video, audio {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Placeholder visual leve para elementos que podem receber foco */
+.skip-link {
+	position: absolute;
+	left: -999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.skip-link:focus {
+	left: 1rem;
+	top: 1rem;
+	width: auto;
+	height: auto;
+	padding: .5rem 1rem;
+	background: #000;
+	color: #fff;
+	z-index: 1000;
+}
+
+/* Fim do reset */
+
