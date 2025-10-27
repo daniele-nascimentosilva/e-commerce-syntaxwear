@@ -9,7 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 0.225rem 1.25rem;
+    z-index: 999;
 }
 
 .logo img{
@@ -22,11 +23,15 @@
     gap: 2.5rem;
 }
 
+.nav-center a,
+.nav-right a{
+    font-size: 1.25rem;
+    color: #333;
+}
+
 .nav-center a:hover,
 .nav-right a:hover{
-    font-size: 1.25rem;
     color: #7c3aed;
-
 }
 .nav-right ul{
     list-style: none;
