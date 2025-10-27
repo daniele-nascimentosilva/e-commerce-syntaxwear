@@ -1,129 +1,131 @@
 /* Reset moderno inspirado no "Modern CSS Reset" do Andy Bell
-	 Fonte: https://piccalil.li/blog/a-modern-css-reset/
-	 Comentários em PT-BR e pequenas adaptações para o projeto.
+     Fonte e referência: https://piccalil.li/blog/a-modern-css-reset/
+     Versão adaptada para o projeto — comentários em PT-BR.
 
-	 Objetivo: fornecer uma base consistente entre navegadores
-	 sem impor estilos visuais — apenas normalize/remoções úteis.
+     Objetivo: criar uma base consistente entre navegadores mantendo
+     comportamento acessível e previsível (imagens responsivas, forms,
+     prefers-reduced-motion, utilitários de acessibilidade).
 */
 
-/* Box sizing mais previsível */
+/* Box-sizing previsível */
 *, *::before, *::after {
-	box-sizing: border-box; /* incluir padding e border nas larguras */
+    box-sizing: border-box;
 }
 
-/* Remover margens padrão de elementos de bloco */
-:where(html, body, main, header, footer, section, nav, article) {
-	margin: 0;
-	padding: 0;
+/* Remover margens padrão de elementos blocos comuns */
+:where(html, body, p, h1, h2, h3, h4, h5, h6, figure, blockquote,
+             dl, dd, ul, ol, li, pre, table, fieldset, legend) {
+    margin: 0;
+    padding: 0;
 }
 
-/* Forçar altura mínima do documento e renderização de texto legível */
+/* Permitir alturas percentuais e otimizações de texto */
 html, body {
-	height: 100%;
-	-webkit-text-size-adjust: 100%; /* desabilita o zoom automático em alguns dispositivos */
+    height: 100%;
+    -webkit-text-size-adjust: 100%; /* evita zoom automático em iOS */
 }
 
-/* Fonte e cores ficam por conta do projeto (variables.css) */
+/* Base de corpo: sem tipografia forçada (usar variables.css), apenas legibilidade */
 body {
-	line-height: 1.4; /* melhora legibilidade padrão */
-	text-rendering: optimizeLegibility;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Remover margens em headings e parágrafos */
-h1, h2, h3, h4, h5, h6, p {
-	margin: 0;
+/* Garantir que headings e parágrafos quebrem palavras corretamente */
+:where(h1, h2, h3, h4, h5, h6, p) {
+    overflow-wrap: break-word;
 }
 
-/* Listas sem estilos por padrão */
-ul, ol {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+/* Imagens e mídia: responsivas e sem gaps indesejados */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-/* Links sem decoração por padrão, mas preserva cor herdada */
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-/* Imagens responsivas por padrão */
-img, picture {
-	max-width: 100%;
-	display: block;
-}
-
-/* Tabelas: colapsar bordas por padrão */
+/* Tabelas: colapsar bordas */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-/* Formulários: reset básico para inputs e botões */
+/* Formulários: herdar fonte do contexto e remover margens inesperadas */
 input, button, textarea, select {
-	font: inherit; /* herda fonte do elemento pai */
-	margin: 0; /* remove margem padrão em alguns browsers */
+    font: inherit;
+    margin: 0;
 }
 
-/* Remover outline padrão apenas quando houver suporte a foco visível */
-:focus {
-	outline: 2px solid transparent;
-	outline-offset: 2px;
+/* Listas sem estilo por padrão */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* Utilitário para esconder visualmente mas manter acessível a leitores de tela */
-.sr-only {
-	position: absolute !important;
-	width: 1px; height: 1px;
-	padding: 0; margin: -1px;
-	overflow: hidden; clip: rect(0 0 0 0);
-	white-space: nowrap; border: 0;
+/* Links: sem decoração por padrão, cor herdada */
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-/* Redefine elementos HTML5 interativos para comportamento consistente */
+/* Botões: aparência neutra por padrão */
 button {
-	background: transparent;
-	border: none;
-	padding: 0;
+    background: transparent;
+    border: 0;
+    padding: 0;
 }
 
-/* Inputs do tipo search ou number podem ter aparências nativas indesejadas */
+/* Inputs search: remover decorações do webkit */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
-	-webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
-/* Telas pequenas: garantir que o texto não quebre de forma estranha por padrão */
-html {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+/* Reduzir movimento para usuários que preferem menos animação */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
-/* Melhor fallback para elementos de mídia com legendas */
-video, audio {
-	display: inline-block;
-	vertical-align: middle;
+/* Utilitários de acessibilidade */
+.sr-only {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0);
+    white-space: nowrap; border: 0;
 }
 
-/* Placeholder visual leve para elementos que podem receber foco */
+/* Skip-link: escondido visualmente até receber foco */
 .skip-link {
-	position: absolute;
-	left: -999px;
-	top: auto;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 .skip-link:focus {
-	left: 1rem;
-	top: 1rem;
-	width: auto;
-	height: auto;
-	padding: .5rem 1rem;
-	background: #000;
-	color: #fff;
-	z-index: 1000;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: .5rem 1rem;
+    background: #000;
+    color: #fff;
+    z-index: 1000;
+}
+
+/* Pequenas melhorias para mídia linear */
+video, audio {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Fim do reset */
-

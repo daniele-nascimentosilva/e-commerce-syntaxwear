@@ -3,27 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyntaxWear</title>
+    <title>SyntaxWear - Tênis e Sneakers Online</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
-    
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <a class="skip-link" href="#main">Ir para o conteúdo</a>
 
-    <header class="site-header" role="banner">
+    <header class="header">
         <!-- Logo e navegação -->
-         <h1>titulo</h1>
-        <div class="header-inner">
-            <div class="logo">
-                <!-- Logo aqui -->
-            </div>
-            <nav class="site-nav" role="navigation" aria-label="Navegação principal">
+         <h1 class="logo">
+            <a href="/" title="SyntaxWear - Tênis e Sneakers Online">
+                <img src="./images/icons/logo.svg" alt="SyntaxWear - Tênis e Sneakers Online">
+            </a>
+         </h1>
+
+            <nav class="nav-center" aria-label="Catergorias principais">
+                <ul>
+                    <li><a href="#">Masculino</a></li>
+                    <li><a href="#">Feminino</a></li>
+                    <li><a href="#">Outlet</a></li>
+                </ul>
                 <!-- Links de navegação -->
             </nav>
-        </div>
+            
+            <!-- Menu secundário (ex.: Nossas lojas, Sobre, ícones de conta/ajuda/carrinho) -->
+            <nav class="nav-right" aria-label="Menu secundário">
+                <ul>
+                    <li><a href="#">Nossas lojas</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#" aria-label="Minha conta" class="icon-link">
+                        <img src="./images/icons/user.svg" alt="Minha conta">
+                    </a></li>
+                    <li><a href="#" aria-label="Central de ajuda" class="icon-link">
+                        <img src="./images/icons/help.svg" alt="Central de ajuda">
+                    </a></li>
+                    <li><a href="#" aria-label="Carrinho" class="icon-link">
+                        <img src="./images/icons/cart.svg" alt="Carrinho">
+                    </a></li>
+                </ul>
+            </nav>
     </header>
 
     <main id="main" role="main">
