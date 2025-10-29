@@ -1,0 +1,77 @@
+
+.card{
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.top1{
+    grid-area: top1;
+    background: url(../images/products/modelo-masculino.svg) no-repeat left;
+    background-size: cover;
+
+}
+.top2{
+    grid-area: top2;
+    background: url(../images/products/tênis-roxo-verde.svg) no-repeat center;
+    background-size: cover;
+}
+.midL{
+    grid-area: midL;
+    background: url(../images/products/modelo-feminino.svg);
+    background-size: cover;
+}
+.midR{
+    grid-area: midR;
+    background: url(../images/products/tênis\ moderno.svg) no-repeat center;
+    background-size: cover;
+}
+.bottomL{
+    grid-area: bottomL;
+    background: url(../images/products/tênis-preto-azul.svg) no-repeat center;
+    background-size: cover;
+}
+.bottomR{
+    grid-area: bottomR;
+    background: url(../images/products/tênis\ futurista.svg) no-repeat center;
+    background-size: cover;
+}
+.categories-products{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    grid-template-areas:
+        "top1 top1 top2 top2"
+        "top1 top1 midL midR"
+        "bottomL bottomL midL bottomR"; 
+    gap: 30px;
+}
+
+.top1-content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card-title{
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+
+}
+
+.card-subtitle{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.cta-group{
+    display: flex;
+    gap: 10px;
+    margin-left: 12px;
+}

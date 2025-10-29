@@ -1,5 +1,9 @@
 body{
     font-family: var(--fonte-principal);
-    background-color: black;
     color: #333;
+    padding: 1.5rem;
+    max-width: 1360px;
+    margin: 0 auto;
+
 }
+
