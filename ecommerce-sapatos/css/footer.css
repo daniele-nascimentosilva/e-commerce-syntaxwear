@@ -1,0 +1,138 @@
+.site-footer{
+    background-color: #333;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.footer-content{
+    max-width: 1360px;
+    height: 260px;
+    margin: 0 auto;
+    padding: 40px 40px;
+    justify-content: space-between;
+}
+
+.footer-top{
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.footer-title{
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+/* ----- Newsletter (esquerda) ----- */
+.footer-left{
+    width: 280px;
+    flex: 0 0 280px;
+}
+
+.newsletter-form{
+    border-radius: 30px;
+    overflow: hidden;
+    display: block;
+    background: #fff;
+    width: 270px;
+    height: 30px;
+}
+
+.newsletter-form input[type="email"]{
+    border: 0;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    width: 100%;
+    height: 100%;
+    color: #111;
+    background: transparent;
+}
+
+.footer-social{
+    margin-top: 14px;
+}
+
+.social-list{
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.social-list a img{
+    width: 18px;
+    height: 18px;
+    display: block;
+    filter: invert(1);
+    opacity: 0.95;
+}
+
+/* ----- Links (direita) ----- */
+.footer-links-grid{
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 12px 22px;
+    align-items: start;
+}
+
+.footer-nav{
+    margin: 0;
+}
+
+.footer-nav .footer-heading{
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li{
+    margin-bottom: 6px;
+}
+
+.footer-nav a{
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-nav a:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+
+/* ----- Separator & copyright full-bleed ----- */
+.footer-separator{
+    width: 100%;
+    /* margin-left: calc(50% - 50vw); */
+    border: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom{
+    width: 100%;
+    /* margin-left: calc(50% - 50vw); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0;
+}
+
+.footer-copyright .copyright{
+    /* display: flex;
+    flex-direction: column; */
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+}
+

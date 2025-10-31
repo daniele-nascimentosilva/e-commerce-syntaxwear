@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/product-card.css">
     <link rel="stylesheet" href="css/product-grid.css">
+    <link rel="stylesheet" href="css/footer.css">
    
     
 </head>
@@ -128,15 +129,89 @@
         </section>
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-        <div class="footer-inner">
-            <!-- Informações de contato e links -->
-            <section class="contact" aria-label="Informações de contato">
-                <!-- Contato vazio -->
-            </section>
-            <section class="footer-links" aria-label="Links do rodapé">
-                <!-- Links vazios -->
-            </section>
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <div class="footer-top">
+                <!-- Newsletter / contato -->
+                <div class="footer-left footer-newsletter">
+                    <h3 class="footer-title">Inscreva-se em nosso e-mail</h3>
+                    <form class="newsletter-form" action="#" method="post" aria-label="Inscreva-se por e-mail">
+                        <label for="newsletter-email" class="sr-only">Endereço de e-mail</label>
+                        <input id="newsletter-email" type="email" name="email" placeholder="email@email.com" required>
+                    </form>
+
+                    <div class="footer-social" aria-label="Redes sociais">
+                        <p>Redes sociais</p>
+                        <ul class="social-list">
+                            <li><a href="#" aria-label="Instagram"><img src="./images/icons/instagram.svg" alt="Instagram"></a></li>
+                            <li><a href="#" aria-label="Pinterest"><img src="./images/icons/pinterest.svg" alt="Pinterest"></a></li>
+                            <li><a href="#" aria-label="TikTok"><img src="./images/icons/tiktok.svg" alt="TikTok"></a></li>
+                            <li><a href="#" aria-label="Facebook"><img src="./images/icons/facebook.svg" alt="Facebook"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Colunas de links (produtos e informações) -->
+                <div class="footer-col footer-links-grid">
+                    <nav class="footer-nav" aria-label="Produtos masculino">
+                        <h4 class="footer-heading">Masculino</h4>
+                        <ul>
+                            <li><a href="#">Casual</a></li>
+                            <li><a href="#">Esporte</a></li>
+                            <li><a href="#">Moderno</a></li>
+                            <li><a href="#">Futurista</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="footer-nav" id="footer" aria-label="Produtos feminino">
+                        <h4 class="footer-heading">Feminino</h4>
+                        <ul>
+                            <li><a href="#">Casual</a></li>
+                            <li><a href="#">Esporte</a></li>
+                            <li><a href="#">Moderno</a></li>
+                            <li><a href="#">Futurista</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="footer-nav" aria-label="Outlet">
+                        <h4 class="footer-heading">Outlet</h4>
+                        <ul>
+                            <li><a href="#">Masculino</a></li>
+                            <li><a href="#">Feminino</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="footer-nav" aria-label="Nossas lojas">
+                        <h4 class="footer-heading">Nossas lojas</h4>
+                        <ul>
+                            <li><a href="#">Loja física</a></li>
+                            <li><a href="#">Loja online</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="footer-nav" aria-label="Sobre">
+                        <h4 class="footer-heading">Sobre</h4>
+                        <ul>
+                            <li><a href="#">Quem somos</a></li>
+                            <li><a href="#">Missão</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+
+            </div>
+
+            <div class="separator">
+
+            <hr class="footer-separator" />
+            </div>
+
+            <div class="footer-copyright">
+                <p class="copyright">Copyright. All Rights Reserved</p>
+            </div>
+            </div>
         </div>
     </footer>
     
