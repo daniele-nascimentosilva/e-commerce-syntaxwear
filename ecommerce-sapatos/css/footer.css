@@ -251,6 +251,35 @@
     /* keep separator/container width constrained to footer on mobile as well */
     .footer-separator{ width: 100%; }
     .footer-bottom{ width: 100%; }
+
+    /* stronger stacking and spacing for very small screens to match reference */
+    .footer-top{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    /* make the links behave as a single vertical list — each .footer-nav full width */
+    .footer-links-grid{
+        display: block;
+    }
+
+    .footer-nav{
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .footer-nav ul{ display: block; }
+    .footer-nav li{ margin: 6px 0; }
+
+    /* reduce spacing of newsletter and social to align with design */
+    .footer-left{ padding-bottom: 6px; }
+    .footer-social{ margin-top: 8px; }
+
+    /* ensure separator sits clearly below everything with space */
+    .separator-copyright{ margin-top: 18px; }
 }
 
 /* Tornar separator e footer-bottom full-bleed em mobile/tablet para alinhar ao layout da imagem */

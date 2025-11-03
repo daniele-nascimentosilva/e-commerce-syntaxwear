@@ -47,6 +47,59 @@
     gap: 30px;
 }
 
+/* Responsive: transformar grid em layout mais compacto e empilhado em mobile */
+@media (max-width: 900px) {
+    .categories-products{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+        grid-template-areas:
+            "top1 top2"
+            "midL midR"
+            "bottomL bottomR";
+        gap: 20px;
+    }
+
+    .card{ border-radius: 16px; }
+
+    /* tornar o conteúdo interno relativo para alinhar no centro de cada card */
+    .top1-content{ position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}
+
+@media (max-width: 420px) {
+    .categories-products{
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .card{
+        min-height: 160px;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    /* ajustar imagens/backgrounds para centralizar e cobrir */
+     .top1, .top2, .midL, .midR, .bottomL, .bottomR{
+        background-position: center;
+        background-size: cover;
+    }
+    
+
+    
+
+    /* tornar o conteúdo do top1 mais natural no fluxo (não absoluto) */
+    .top1-content{
+        position: relative;
+        transform: none;
+        left: auto;
+        top: auto;
+        padding: 12px;
+        text-align: left;
+    }
+
+    .card-title{ color: #111; }
+}
+
 .top1-content{
     position: absolute;
     left: 50%;

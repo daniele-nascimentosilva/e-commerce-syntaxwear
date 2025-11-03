@@ -84,15 +84,23 @@
  .menu-toggle{ display: none; }
  .menu-icon{ display: none; }
 
+/* ensure the hamburger icon stays on top of the drawer when open */
+.menu-icon{
+    cursor: pointer;
+    position: relative;
+    z-index: 1101; /* higher than .container (1000) and .header (999) */
+    display: none; /* hidden by default on desktop, shown via media query */
+    -webkit-tap-highlight-color: transparent; /* mobile tap clean */
+}
+
 @media (max-width: 1280px){
     /* collapse full menu into hamburger for widths <= 1280px */
     .header{ width: calc(100% - 40px); }
     .nav-center, .nav-right{ display: none; }
     .nav-right ul{ gap: 10px; }
     .menu-icon{ display: block; }
-
-    /* Drawer styles: container becomes off-canvas panel */
-    .container{
+    /* Drawer styles: container becomes off-canvas panel (scoped to header only) */
+    .header .container{
         position: fixed;
         top: 0;
         right: -100%;
@@ -108,21 +116,21 @@
         overflow-y: auto;
     }
 
-    /* Show nav lists stacked inside the drawer */
-    .container .nav-center,
-    .container .nav-right{
+    /* Show nav lists stacked inside the drawer (scoped to header) */
+    .header .container .nav-center,
+    .header .container .nav-right{
         display: block;
         width: 100%;
     }
-    .container .nav-center ul,
-    .container .nav-right ul{
+    .header .container .nav-center ul,
+    .header .container .nav-right ul{
         display: block;
         gap: 0;
         padding: 0;
         margin: 0;
     }
-    .container li{ width: 100%; }
-    .container a{ display: block; padding: 10px 6px; border-bottom: 1px solid #eee; color: #222; }
+    .header .container li{ width: 100%; }
+    .header .container a{ display: block; padding: 10px 6px; border-bottom: 1px solid #eee; color: #222; }
 
     /* When checkbox is checked, slide the drawer in */
     .menu-toggle:checked ~ .container{
