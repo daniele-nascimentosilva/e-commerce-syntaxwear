@@ -3,39 +3,75 @@
 Repositório com o protótipo front-end estático do site SyntaxWear (loja de tênis / sneakers).
 
 Resumo
-- Projeto: e-commerce estático (HTML + CSS)
-- Pasta principal do site: `ecommerce-sapatos/`
-- Propósito: demonstrar layout responsivo (header com drawer, hero, grid de produtos, footer responsivo)
 
-Como abrir localmente
-- Recomendado (rápido): abra `ecommerce-sapatos/index.html` no navegador.
-	- No Windows PowerShell você pode executar:
+# Deploy — instruções mínimas
+
+Este repositório contém um site estático em `ecommerce-sapatos/` (HTML + CSS). abaixo estão apenas as instruções necessárias para publicar no GitHub Pages.
+
+Pré-requisitos
+- Ter o repositório no GitHub.
+- Ter permissões para modificar as configurações do repositório (Settings → Pages).
+
+Opções de deploy (escolha uma)
+
+1) Publicar via branch `gh-pages` (rápido, sem configurar Actions)
 
 ```powershell
-# a partir da raiz do repo
-Start-Process .\ecommerce-sapatos\index.html
+# publica o conteúdo da pasta ecommerce-sapatos em gh-pages
+git checkout --orphan gh-pages
+git --work-tree ./ecommerce-sapatos add --all
+git --work-tree ./ecommerce-sapatos commit -m "Deploy site to gh-pages"
+git push origin HEAD:gh-pages --force
+git checkout -
 ```
 
-- Desenvolvedor (recomendado para refresh automático): rode um Live Server (VS Code Live Server ou `npx http-server`) a partir da pasta `ecommerce-sapatos`.
+Depois, no GitHub: Settings → Pages → Source = `gh-pages` branch.
 
-Estrutura do projeto (resumida)
+2) Publicar usando a pasta `docs/` na branch `main`
+
+```powershell
+# copiar conteúdo para docs/ e commitar na branch main
+rm -rf docs; mkdir docs
+cp -r ecommerce-sapatos/* docs/
+git add docs && git commit -m "Add site to docs/ for GitHub Pages" && git push
+```
+
+Depois, no GitHub: Settings → Pages → Source = `main` branch / `docs/` folder.
+
+3) Deploy automático com GitHub Actions (recomendado)
+
+Crie o arquivo `.github/workflows/gh-pages.yml` com este conteúdo:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+	push:
+		branches: [ main ]
+
+jobs:
+	deploy:
+		runs-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v4
+			- name: Deploy
+				uses: peaceiris/actions-gh-pages@v3
+				with:
+					github_token: ${{ secrets.GITHUB_TOKEN }}
+					publish_dir: ./ecommerce-sapatos
 
 ```
-/ (repo root)
-	README.md
-	ecommerce-sapatos/
-		index.html
-		assets/
-		css/
-			reset.css
-			variables.css
-			base.css
-			header.css
-			hero.css
-			product-card.css
-			product-grid.css
-			footer.css
-		images/
+
+Esse workflow publica automaticamente o conteúdo da pasta `ecommerce-sapatos` para o Pages.
+
+Notas importantes
+- Se os caminhos dos assets (CSS/IMAGES) usarem `/css/...` (barra inicial), troque para caminhos relativos `css/...` para evitar 404 quando o site estiver hospedado em um subpath (ex.: `/<repo>/`).
+- Para usar domínio customizado, crie um arquivo `CNAME` com o domínio dentro da pasta publicada.
+
+Se quiser que eu:
+- crie o arquivo de workflow `.github/workflows/gh-pages.yml` automaticamente aqui no repositório;
+- ou gere um `package.json` com script `deploy` usando `gh-pages` (npm);
+me diga qual preferência e eu implemento.
 ```
 
 Arquivos principais
